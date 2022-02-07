@@ -5,15 +5,18 @@ const useStyles = makeStyles((theme) => ({
 	title: {
 		display: 'none',
 		[theme.breakpoints.up('sm')]: {
-			display: 'block',
+      display: 'block',
 		},
 	},
-  titleH6: {
+  searchBox: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  titleSearch: {
     display: 'none',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
-    lineHeight: '39px'
   },
 	search: {
 		position: 'relative',
@@ -55,6 +58,7 @@ const useStyles = makeStyles((theme) => ({
 	toolbar: {
 		display: 'flex',
 		justifyContent: 'space-between',
+    alignItems: 'center',
 	},
 }));
 

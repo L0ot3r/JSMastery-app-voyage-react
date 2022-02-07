@@ -13,8 +13,8 @@ const Header = () => {
 				<Typography variant='h5' className={classes.title}>
 					Travel Advisor
 				</Typography>
-				<Box display='flex'>
-					<Typography variant='h6' className={classes.titleH6}>
+				<Box className={classes.searchBox}>
+					<Typography variant='h6' className={classes.titleSearch}>
 						Trouver une ville
 					</Typography>
 					{/* <Autocomplete> */}
