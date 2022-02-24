@@ -4,9 +4,18 @@ const useStyles = makeStyles(() => ({
 	paper: {
 		padding: '10px',
 		display: 'flex',
-		flexDirection: 'column',
+		flexWrap: 'wrap',
 		justifyContent: 'center',
 		width: '100px',
+		'& img': {
+			width: '100%',
+			maxHeight: '60px',
+			objectFit: 'cover',
+			marginBottom: '5px',
+		},
+		'&:hover': {
+			transform: 'scale(1.5)',
+		}
 	},
 	mapContainer: {
 		height: '85vh',
@@ -16,7 +25,7 @@ const useStyles = makeStyles(() => ({
 		position: 'absolute',
 		transform: 'translate(-50%, -50%)',
 		zIndex: 1,
-		'&:hover': { zIndex: 2 },
+		'&:hover': { zIndex: 100 },
 	},
 	pointer: {
 		cursor: 'pointer',

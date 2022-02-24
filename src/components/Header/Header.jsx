@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AppBar, Box, InputBase, Toolbar, Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-// import { Autocomplete } from '@react-google-maps/api';
+import { Autocomplete } from '@react-google-maps/api';
 import useStyles from './style';
 
-const Header = () => {
+const Header = ({setCoords}) => {
 	const classes = useStyles();
+	const [autocomplete, setAutocomplete] = useState(null)
+
+	const onLoad = (autoC) => setAutocomplete(autoC);
+
+	const onPlaceChanged = () => {
+		const lat = autocomplete.getPlace().geometry.location.lat();
+		const lng = autocomplete.getPlace().geometry.location.lng();
+
+		setCoords({ lat, lng });
+	}
 
 	return (
 		<AppBar position='static'>
@@ -17,7 +27,7 @@ const Header = () => {
 					<Typography variant='h6' className={classes.titleSearch}>
 						Trouver une ville
 					</Typography>
-					{/* <Autocomplete> */}
+					<Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
 					<div className={classes.search}>
 						<div className={classes.searchIcon}>
 							<SearchIcon />
@@ -28,7 +38,7 @@ const Header = () => {
 							placeholder='Search...'
 						/>
 					</div>
-					{/* </Autocomplete> */}
+					</Autocomplete>
 				</Box>
 			</Toolbar>
 		</AppBar>
